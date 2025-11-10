@@ -15,52 +15,225 @@
       <a class="back-link" href="index.html">← Back to course overview</a>
       <span class="sub-hero__tag">UNIT III</span>
       <h1>Access Control &amp; Authentication</h1>
-      <p class="sub-hero__intro">Design trustworthy identity journeys with layered authentication factors and policy-driven authorization decisions.</p>
+      <p class="sub-hero__intro">Architect adaptive identity controls that balance frictionless access with provable trust. This unit examines cryptographic guarantees, threat-aware authentication, and the policies that enforce least privilege.</p>
     </div>
   </header>
 
   <main class="unit-page__main container">
     <section class="unit-section">
       <h2>Overview</h2>
-      <p>Unit III examines the guardrails that differentiate who can access which assets and under what conditions. Learners critique authentication models, tune assurance levels, and orchestrate authorization strategies for adaptable architectures.</p>
+      <p class="unit-section__intro">Unit III guides you through designing, hardening, and verifying authentication journeys. We unpack the cryptographic primitives behind digital trust, map adversary tactics against identity systems, and translate policy to resilient access control patterns.</p>
+
+      <div class="overview-highlights">
+        <div class="overview-highlights__item">
+          <span class="overview-highlights__label">FOCUS</span>
+          Cryptographic proof, factor orchestration, and authorization governance.
+        </div>
+        <div class="overview-highlights__item">
+          <span class="overview-highlights__label">CAPSTONE</span>
+          Compose a layered authentication blueprint aligned to CIA requirements.
+        </div>
+        <div class="overview-highlights__item">
+          <span class="overview-highlights__label">OUTCOMES</span>
+          Evaluate control strength, anticipate threats, and engineer measurable trust.
+        </div>
+      </div>
+    </section>
+
+    <section class="unit-section unit-section--layered">
+      <div class="unit-section__header">
+        <h2>Hashing Techniques &amp; Digital Signatures</h2>
+        <p class="unit-section__intro">Understand how one-way functions, collision resistance, and signing ceremonies anchor integrity and non-repudiation across identity flows.</p>
+      </div>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <span class="topic-card__tag">Hashing</span>
+          <h3>Digest Algorithms &amp; Salting</h3>
+          <ul class="topic-card__list">
+            <li>Contrast SHA-2, SHA-3, and memory-hard password hashing (Argon2, scrypt).</li>
+            <li>Design adaptive cost parameters responsive to hardware acceleration.</li>
+            <li>Apply salting, peppering, and key-stretching to neutralize rainbow tables.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">Integrity</span>
+          <h3>Digital Signatures in Practice</h3>
+          <ul class="topic-card__list">
+            <li>Walk through RSA, ECDSA, and EdDSA signing and verification lifecycles.</li>
+            <li>Map certificate trust chains and the role of hardware security modules.</li>
+            <li>Evaluate signature validity windows, revocation signals, and audit trails.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">Threats</span>
+          <h3>Risks &amp; Countermeasures</h3>
+          <ul class="topic-card__list">
+            <li>Analyze collision attacks, chosen-prefix forgeries, and downgrade attempts.</li>
+            <li>Mitigate signing key compromise through rotation and quorum approvals.</li>
+            <li>Instrument tamper-evident logging for high-value digital artifacts.</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section class="unit-section">
-      <h2>Key Topics</h2>
-      <ul>
-        <li>Passwordless and multi-factor authentication patterns.</li>
-        <li>Role-Based, Attribute-Based, and Policy-Based access control models.</li>
-        <li>Credential lifecycle management, recovery, and revocation considerations.</li>
-        <li>Digital signatures, certificates, and federated identity trust models.</li>
-      </ul>
-    </section>
-
-    <section class="unit-section">
-      <h2>Implementation Milestones</h2>
-      <ol>
-        <li>Create a threat model for an authentication system that defends against phishing and replay attacks.</li>
-        <li>Prototype a multi-factor login flow that balances usability with assurance.</li>
-        <li>Compare RBAC and ABAC policies for a case study and document recommended controls.</li>
-        <li>Review certificate management processes to maintain chain-of-trust integrity.</li>
-      </ol>
-    </section>
-
-    <section class="unit-section unit-section--split">
-      <div class="unit-section__grid">
-        <div>
-          <h3>Recommended Resources</h3>
+      <h2>Methods &amp; Threats of Authentication</h2>
+      <p class="unit-section__intro">Dissect the assurance spectrum from shared secrets to possession-based tokens, then match controls to specific adversarial techniques.</p>
+      <div class="insight-grid">
+        <article class="insight-card">
+          <h3 class="insight-card__lede">Authentication Methods</h3>
           <ul>
-            <li><a href="#">Guide: Designing RBAC &amp; ABAC Policies</a></li>
-            <li><a href="#">Workshop: Building a Secure Authentication Flow</a></li>
-            <li><a href="#">Explainer: Digital Signatures &amp; Certificates</a></li>
+            <li>Compare knowledge, possession, inherence, and context-aware signals.</li>
+            <li>Adopt risk-based authentication to elevate factors dynamically.</li>
+            <li>Integrate adaptive authorization policies with policy decision points.</li>
+          </ul>
+        </article>
+        <article class="insight-card insight-card--accent">
+          <h3 class="insight-card__lede">Threat Landscape</h3>
+          <ul>
+            <li>Catalogue phishing, credential stuffing, MFA fatigue, and SIM swap tactics.</li>
+            <li>Map MITRE ATT&amp;CK techniques to identity-centric kill chains.</li>
+            <li>Introduce anomaly detection, device binding, and secure recovery routes.</li>
+          </ul>
+        </article>
+        <article class="insight-card">
+          <h3 class="insight-card__lede">Assurance Metrics</h3>
+          <dl class="insight-metrics">
+            <div>
+              <dt>Authenticator Assurance Level (AAL)</dt>
+              <dd>Assess confidence per NIST SP 800-63B and align with business criticality.</dd>
+            </div>
+            <div>
+              <dt>Session Hardening</dt>
+              <dd>Pair short-lived tokens, continuous re-auth checks, and secure cookies.</dd>
+            </div>
+            <div>
+              <dt>Signal Telemetry</dt>
+              <dd>Instrument behavioral analytics and device health attestations.</dd>
+            </div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section class="unit-section unit-section--accent">
+      <h2>Password &amp; Biometric Authentication</h2>
+      <p class="unit-section__intro">Blend usability with verifiability by modernizing password policies and responsibly deploying biometric authenticators.</p>
+      <div class="documentation-flow">
+        <div class="documentation-flow__column">
+          <h3>Strategic Password Guidance</h3>
+          <ul class="checklist">
+            <li>Enforce password strength via entropy and blocklists, not forced rotation.</li>
+            <li>Support secure password managers and WebAuthn passwordless fallbacks.</li>
+            <li>Detect compromised credentials using breach corpora and safe lookup APIs.</li>
           </ul>
         </div>
-        <div>
-          <h3>Learning Activities</h3>
-          <ul>
-            <li>Create a threat model for an authentication system with MFA.</li>
-            <li>Compare access control models and present recommendations for a case study.</li>
+        <div class="documentation-flow__column">
+          <h3>Biometric Deployment Playbook</h3>
+          <ul class="checklist">
+            <li>Differentiate verification vs. identification and address spoofing vectors.</li>
+            <li>Anchor biometric templates in secure enclaves with liveness detection.</li>
+            <li>Define fallback strategies that preserve inclusivity and privacy obligations.</li>
           </ul>
+        </div>
+        <div class="documentation-flow__column">
+          <h3>Policy &amp; Compliance Notes</h3>
+          <ul class="checklist">
+            <li>Address biometric consent, retention, and deletion in governance charters.</li>
+            <li>Map controls to regulations (GDPR, BIPA) and industry certifications.</li>
+            <li>Run differential privacy reviews for biometric dataset handling.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout-panel">
+        <strong>Design Insight:</strong> Pair biometrics with possession factors and privacy-preserving match-on-card models to minimize centralized biometric exposure.
+      </div>
+    </section>
+
+    <section class="unit-section">
+      <h2>Multifactor Authentication (MFA)</h2>
+      <p class="unit-section__intro">Engineer layered defenses by combining independent factors, sequencing step-up checks, and orchestrating recovery without eroding trust.</p>
+      <div class="dp-grid">
+        <article class="dp-card dp-card--highlight">
+          <h3>MFA Architectures</h3>
+          <ul>
+            <li>Design push, TOTP, FIDO2, and hardware security key flows.</li>
+            <li>Apply phishing-resistant authenticators and attestation validation.</li>
+            <li>Balance synchronous (online) vs. offline OTP experiences for reliability.</li>
+          </ul>
+        </article>
+        <article class="dp-card">
+          <h3>Resilience &amp; Recovery</h3>
+          <ul>
+            <li>Provision break-glass accounts with continuous monitoring.</li>
+            <li>Leverage account recovery codes, WebAuthn resident keys, and device escrow.</li>
+            <li>Automate factor lifecycle: enrollment, revocation, and audit logging.</li>
+          </ul>
+        </article>
+        <article class="dp-card">
+          <h3>User Experience Patterns</h3>
+          <ul>
+            <li>Trigger adaptive MFA based on risk signals and contextual scoring.</li>
+            <li>Implement progressive profiling to gather signals post-onboarding.</li>
+            <li>Educate users on recognizing spoofed prompts and fatigue attacks.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="unit-section unit-section--cia">
+      <h2>CIA Model Alignment</h2>
+      <p class="unit-section__intro">Translate confidentiality, integrity, and availability requirements into concrete access control and authentication guardrails.</p>
+      <div class="cia-grid">
+        <article class="cia-card">
+          <h3>Confidentiality</h3>
+          <ul>
+            <li>Limit data exposure with least privilege, microsegmentation, and ABAC.</li>
+            <li>Tune session scopes, token binding, and encryption-in-use safeguards.</li>
+            <li>Apply just-in-time access and continuous validation for sensitive data.</li>
+          </ul>
+        </article>
+        <article class="cia-card">
+          <h3>Integrity</h3>
+          <ul>
+            <li>Use signed tokens, tamper-proof audit logs, and policy versioning.</li>
+            <li>Implement strong change control for identity providers and trust stores.</li>
+            <li>Continuously monitor authenticator drift and unauthorized factor changes.</li>
+          </ul>
+        </article>
+        <article class="cia-card">
+          <h3>Availability</h3>
+          <ul>
+            <li>Design redundant identity providers and cross-region failover paths.</li>
+            <li>Mitigate DoS with rate-limiting, CAPTCHAs, and adaptive throttling.</li>
+            <li>Exercise incident response playbooks for authentication outages.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="cia-bridge">
+        <strong>Integration Tip:</strong> Map each authentication control to CIA objectives and document assurance evidence to support audits and risk reviews.
+      </div>
+    </section>
+
+    <section class="unit-section unit-section--next">
+      <h2>RPC Protocol Security Spotlight</h2>
+      <div class="next-steps">
+        <div>
+          <p class="unit-section__intro">Remote Procedure Call (RPC) transports identity assertions and authorization decisions across distributed systems. Secure RPC channels enforce origin authenticity, safeguard message integrity, and respect principle of least privilege.</p>
+        </div>
+        <div class="next-actions">
+          <article class="next-actions__item">
+            <span class="next-actions__label">Hardening Checklist</span>
+            <p>Authenticate clients and services with mutual TLS, signed tokens, or Kerberos tickets. Enforce replay protection, nonce usage, and strict schema validation.</p>
+          </article>
+          <article class="next-actions__item">
+            <span class="next-actions__label">Policy Enforcement</span>
+            <p>Embed authorization hooks to ensure RPC methods inherit RBAC/ABAC policies. Isolate privileged procedures behind gateway guards and rate controls.</p>
+          </article>
+          <article class="next-actions__item">
+            <span class="next-actions__label">Observability</span>
+            <p>Instrument distributed tracing, tamper-evident logs, and alerting on anomaly signals like repeated failures or cross-tenant access attempts.</p>
+          </article>
         </div>
       </div>
     </section>
