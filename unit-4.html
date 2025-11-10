@@ -3,64 +3,495 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unit IV · Data Attacks and Trends</title>
+  <title>Unit IV · Data Attacks and Threats</title>
   <link rel="stylesheet" href="assets/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .sub-hero__insights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .sub-hero__insight-card {
+      background: rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+
+    .sub-hero__insight-card span:first-child {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      font-weight: 600;
+    }
+
+    .sub-hero__insight-card span:last-child {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .attack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+
+    .attack-card {
+      background: linear-gradient(165deg, rgba(44, 110, 242, 0.08), rgba(91, 209, 183, 0.18));
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      border: 1px solid rgba(44, 110, 242, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      box-shadow: 0 24px 42px -32px rgba(27, 31, 59, 0.6);
+    }
+
+    .attack-card strong {
+      display: block;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+    }
+
+    .control-stack {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .control-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      border: 1px solid rgba(27, 31, 59, 0.1);
+      box-shadow: 0 22px 40px -34px rgba(27, 31, 59, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .control-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(44, 110, 242, 0.18), transparent 60%);
+      pointer-events: none;
+    }
+
+    .control-card h3 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .control-card ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: var(--color-text-muted);
+    }
+
+    .ladder {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .ladder-step {
+      background: rgba(44, 110, 242, 0.07);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      border: 1px solid rgba(44, 110, 242, 0.16);
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .ladder-step strong {
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .dlp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+
+    .dlp-card {
+      background: linear-gradient(180deg, rgba(15, 21, 42, 0.05), rgba(91, 209, 183, 0.08));
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      border: 1px solid rgba(15, 21, 42, 0.1);
+      box-shadow: 0 18px 32px -28px rgba(27, 31, 59, 0.55);
+    }
+
+    .dlp-card h3 {
+      margin-top: 0;
+      font-size: 1.05rem;
+    }
+
+    .dlp-card ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.2rem;
+      color: var(--color-text-muted);
+    }
+
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+      align-items: stretch;
+    }
+
+    .persona-card {
+      background: rgba(44, 110, 242, 0.08);
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      border: 1px solid rgba(44, 110, 242, 0.2);
+      box-shadow: 0 24px 44px -36px rgba(27, 31, 59, 0.55);
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .persona-card h3 {
+      margin: 0;
+    }
+
+    .persona-card ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: var(--color-text-muted);
+    }
+
+    .assessment-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      border: 1px solid rgba(27, 31, 59, 0.1);
+      box-shadow: 0 18px 38px -32px rgba(27, 31, 59, 0.55);
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .assessment-card ol {
+      margin: 0;
+      padding-left: 1.3rem;
+      color: var(--color-text-muted);
+    }
+
+    .threat-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .threat-table th,
+    .threat-table td {
+      padding: 0.85rem 0.75rem;
+      border-bottom: 1px solid rgba(27, 31, 59, 0.12);
+      text-align: left;
+    }
+
+    .threat-table th {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 720px) {
+      .assessment-card,
+      .persona-card,
+      .control-card,
+      .attack-card,
+      .dlp-card {
+        padding: 1.35rem;
+      }
+    }
+  </style>
 </head>
 <body class="unit-page">
   <header class="sub-hero">
     <div class="container sub-hero__content">
       <a class="back-link" href="index.html">← Back to course overview</a>
       <span class="sub-hero__tag">UNIT IV</span>
-      <h1>Data Attacks and Trends</h1>
-      <p class="sub-hero__intro">Investigate the evolving threat landscape, benchmark attack patterns, and coordinate response strategies that minimize business impact.</p>
+      <h1>Data Attacks and Threats</h1>
+      <p class="sub-hero__intro">Decode the modern offensive toolkit, map exposure across your data estate, and engineer adaptive controls that frustrate adversaries before they reach critical assets.</p>
+      <div class="sub-hero__insights">
+        <div class="sub-hero__insight-card">
+          <span>Median breach dwell time</span>
+          <span>21 days</span>
+        </div>
+        <div class="sub-hero__insight-card">
+          <span>Privacy attacks tracked</span>
+          <span>9 vectors</span>
+        </div>
+        <div class="sub-hero__insight-card">
+          <span>Response readiness goal</span>
+          <span>&lt; 4 hrs</span>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="unit-page__main container">
     <section class="unit-section">
-      <h2>Overview</h2>
-      <p>Unit IV equips learners to recognise common data breach tactics, interpret telemetry, and strengthen organisational readiness. By pairing audits with response planning, teams learn to anticipate emerging attack trends and implement controls that blunt their effectiveness.</p>
+      <h2>Mission Profile</h2>
+      <p class="unit-section__intro">Unit IV links intelligence with execution. You will benchmark privacy attack methods, orchestrate layered defenses, and formalize threat assessment techniques that keep stakeholders aware of residual risk.</p>
+      <div class="overview-highlights">
+        <div class="overview-highlights__item">
+          <span class="overview-highlights__label">Learning Focus</span>
+          <strong>Privacy attack taxonomy, attacker goals, and data exposure</strong>
+        </div>
+        <div class="overview-highlights__item">
+          <span class="overview-highlights__label">Key Competency</span>
+          <strong>Engineer controls that align with business critical data flows</strong>
+        </div>
+        <div class="overview-highlights__item">
+          <span class="overview-highlights__label">Outcome</span>
+          <strong>Threat-aware incident playbooks with quantitative risk triggers</strong>
+        </div>
+      </div>
     </section>
 
-    <section class="unit-section">
-      <h2>Key Topics</h2>
-      <ul>
-        <li>Threat intelligence fundamentals and tracking adversary behaviour.</li>
-        <li>Privacy impact assessments and readiness reviews for critical systems.</li>
-        <li>Data loss prevention strategies and continuous monitoring practices.</li>
-        <li>Incident response planning, tabletop exercises, and post-incident retrospectives.</li>
-      </ul>
-    </section>
-
-    <section class="unit-section">
-      <h2>Practice Pathway</h2>
-      <ol>
-        <li>Review recent breaches to identify tactics, techniques, and procedures.</li>
-        <li>Conduct a privacy impact assessment to uncover sensitive data exposure.</li>
-        <li>Simulate a breach scenario to test communication, containment, and recovery steps.</li>
-        <li>Analyse monitoring data to surface anomalies and prioritise mitigation actions.</li>
-      </ol>
-    </section>
-
-    <section class="unit-section unit-section--split">
-      <div class="unit-section__grid">
-        <div>
-          <h3>Recommended Resources</h3>
+    <section class="unit-section unit-section--layered">
+      <div class="unit-section__header">
+        <h2>Privacy Attacks: Methods &amp; Modus Operandi</h2>
+        <p class="unit-section__intro">Understand how attackers chain reconnaissance, social engineering, and technical exploits to violate confidentiality. Each vector below includes common signals and immediate containment tactics.</p>
+      </div>
+      <div class="attack-grid">
+        <div class="attack-card">
+          <strong>Spear Phishing &amp; Pretexting</strong>
+          <h3>Human-layer deception</h3>
+          <p>Crafted messages that impersonate executives, suppliers, or customer support in order to harvest credentials or MFA tokens.</p>
           <ul>
-            <li><a href="#">Template: Privacy Impact Assessment Checklist</a></li>
-            <li><a href="#">Reading: Data Loss Prevention Strategies</a></li>
-            <li><a href="#">Scenario: Incident Response Runbook</a></li>
+            <li>Signals: urgency, anomalous domains, voice spoofing.</li>
+            <li>Counter: security awareness journeys, adaptive email filtering, MFA-resistant auth.</li>
           </ul>
         </div>
-        <div>
-          <h3>Learning Activities</h3>
+        <div class="attack-card">
+          <strong>Malware Implantation</strong>
+          <h3>Payload-driven compromise</h3>
+          <p>Dropper kits, ransomware, and info-stealers that escalate privilege and exfiltrate sensitive data stores.</p>
           <ul>
-            <li>Run a tabletop exercise to respond to a suspected data breach.</li>
-            <li>Audit sample access logs and identify anomalous activities.</li>
+            <li>Signals: process injection, encrypted outbound spikes, lateral movement.</li>
+            <li>Counter: application allow-listing, EDR containment, immutable backups.</li>
           </ul>
+        </div>
+        <div class="attack-card">
+          <strong>API &amp; Application Abuse</strong>
+          <h3>Trust boundary exploitation</h3>
+          <p>Automated probing of poorly authenticated APIs, BOLA attacks, and injection flaws that expose customer records.</p>
+          <ul>
+            <li>Signals: volumetric API calls, schema discovery attempts.</li>
+            <li>Counter: schema-level authorization, rate limiting, secure coding reviews.</li>
+          </ul>
+        </div>
+        <div class="attack-card">
+          <strong>Inference &amp; Linkage Attacks</strong>
+          <h3>Privacy erosion through correlation</h3>
+          <p>Combining anonymized datasets with public data to re-identify subjects or extract sensitive attributes.</p>
+          <ul>
+            <li>Signals: repeated queries on edge cases, cross-dataset joins.</li>
+            <li>Counter: differential privacy, query auditing, dataset minimization.</li>
+          </ul>
+        </div>
+        <div class="attack-card">
+          <strong>Insider Misuse</strong>
+          <h3>Privilege abuse and data hoarding</h3>
+          <p>Disgruntled or coerced employees abusing legitimate access channels to stage sensitive reports and intellectual property.</p>
+          <ul>
+            <li>Signals: off-hours downloads, USB copy attempts, policy overrides.</li>
+            <li>Counter: behavior analytics, insider response playbooks, just-in-time access.</li>
+          </ul>
+        </div>
+        <div class="attack-card">
+          <strong>Traffic Interception</strong>
+          <h3>Man-in-the-middle &amp; session theft</h3>
+          <p>Adversaries hijack unencrypted traffic, SSL-stripping, or rogue Wi-Fi to steal tokens and manipulate transactions.</p>
+          <ul>
+            <li>Signals: certificate mismatches, hotspot beacons, TLS downgrade.</li>
+            <li>Counter: HSTS, mutual TLS, secure remote access baselines.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="unit-section">
+      <h2>Data Security Control Stack</h2>
+      <p class="unit-section__intro">Layered defenses keep sensitive workloads resilient even when a single control slips. Combine preventive, detective, and corrective mechanisms to deliver consistent protection outcomes.</p>
+      <div class="control-stack">
+        <div class="control-card">
+          <h3>Data Security Foundation</h3>
+          <p>Discover and classify data, enforce encryption at rest and in transit, and apply integrity monitoring to critical repositories.</p>
+          <ul>
+            <li>Automated discovery scans and sensitivity labels.</li>
+            <li>Hardware-backed encryption key management.</li>
+            <li>Storage baselines, tamper-evident logging.</li>
+          </ul>
+        </div>
+        <div class="control-card">
+          <h3>Access Control Strategy</h3>
+          <p>Map identities to least-privilege roles, enforce policy-as-code, and continuously verify trust.</p>
+          <ul>
+            <li>Zero trust network segmentation.</li>
+            <li>Risk-adaptive authentication &amp; MFA.</li>
+            <li>Role mining and periodic access recertification.</li>
+          </ul>
+        </div>
+        <div class="control-card">
+          <h3>Data Loss Prevention (DLP)</h3>
+          <p>Monitor data in motion, use dynamic masking, and orchestrate automated response when sensitive content leaves approved boundaries.</p>
+          <ul>
+            <li>Inline inspection for email, web, and endpoint channels.</li>
+            <li>Exact data match &amp; fingerprinting policies.</li>
+            <li>Conditional redaction and workflow-based approvals.</li>
+          </ul>
+        </div>
+        <div class="control-card">
+          <h3>Extra Security Controls</h3>
+          <p>Complement core safeguards with deception, isolation, and resilience boosters that raise attacker cost.</p>
+          <ul>
+            <li>Honeypots and decoy credentials to detect intrusions.</li>
+            <li>Browser isolation for high-risk roles.</li>
+            <li>Immutable backups &amp; cyber recovery drills.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="unit-section">
+      <h2>Access Control Maturity Ladder</h2>
+      <p class="unit-section__intro">Advance access governance from static approvals to continuous, data-driven decisioning. Use this ladder to benchmark your program and prioritize next steps.</p>
+      <div class="ladder">
+        <div class="ladder-step">
+          <strong>Stage 1 · Baseline</strong>
+          <p>Manual provisioning, static passwords, and periodic audits. Focus: inventory accounts, enable MFA, and centralize identity stores.</p>
+        </div>
+        <div class="ladder-step">
+          <strong>Stage 2 · Contextual</strong>
+          <p>Adopt role-based access control, enforce session timeouts, and monitor privileged actions with alerts mapped to MITRE ATT&amp;CK.</p>
+        </div>
+        <div class="ladder-step">
+          <strong>Stage 3 · Adaptive</strong>
+          <p>Risk scoring influences authentication friction, approvals use policy-as-code, and user behavior analytics flag drift in real time.</p>
+        </div>
+        <div class="ladder-step">
+          <strong>Stage 4 · Autonomous</strong>
+          <p>Self-healing access: automated quarantine of suspicious sessions, continuous verification of device posture, and AI-driven policy tuning.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="unit-section unit-section--layered">
+      <h2>Data Loss Prevention Playbook</h2>
+      <p class="unit-section__intro">DLP is more than blocking exfiltration. Align content-aware controls with business processes so that protections follow the data wherever it travels.</p>
+      <div class="dlp-grid">
+        <div class="dlp-card">
+          <h3>Program Setup</h3>
+          <ul>
+            <li>Establish cross-functional governance with legal, HR, and engineering stakeholders.</li>
+            <li>Define classification standards and policy severities aligned to regulatory obligations.</li>
+            <li>Instrument KPI dashboards: incidents by channel, time-to-remediate, false positive rate.</li>
+          </ul>
+        </div>
+        <div class="dlp-card">
+          <h3>Operational Controls</h3>
+          <ul>
+            <li>Endpoint agents to inspect removable media, clipboard usage, and shadow storage.</li>
+            <li>API integrations with SaaS platforms for granular sharing controls and watermarking.</li>
+            <li>Dynamic masking for analytics teams using production-like datasets.</li>
+          </ul>
+        </div>
+        <div class="dlp-card">
+          <h3>Continuous Improvement</h3>
+          <ul>
+            <li>Run purple-team exercises to validate detection logic and refine response workflows.</li>
+            <li>Automate ticket enrichment with user risk score, data owner, and compliance tags.</li>
+            <li>Close loop with awareness campaigns and adaptive training scenarios.</li>
+          </ul>
+        </div>
+      </div>
+      <table class="threat-table">
+        <thead>
+          <tr>
+            <th>Channel</th>
+            <th>High-Risk Data Types</th>
+            <th>Policy Trigger</th>
+            <th>Automated Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Email &amp; Collaboration</td>
+            <td>PII exports, legal hold documents</td>
+            <td>Exact data match with external domains</td>
+            <td>Encrypt message, require manager approval, notify legal</td>
+          </tr>
+          <tr>
+            <td>Cloud Storage</td>
+            <td>Source code, architecture diagrams</td>
+            <td>Sharing outside tenant or anonymous links</td>
+            <td>Auto-expire link, quarantine file, alert security operations</td>
+          </tr>
+          <tr>
+            <td>Endpoints</td>
+            <td>Customer exports, health data</td>
+            <td>Copy to removable media or printing attempts</td>
+            <td>Block action, capture forensic snapshot, notify data owner</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="unit-section">
+      <h2>Measuring Risk &amp; Assessing Threats</h2>
+      <p class="unit-section__intro">Quantify attacker capability, intent, and likelihood so that leadership can prioritize mitigation budgets with confidence.</p>
+      <div class="risk-grid">
+        <div class="persona-card">
+          <h3>Average Attacker Profile</h3>
+          <p>An "everyday" adversary blends commodity tooling with opportunistic targeting while pursuing monetizable data.</p>
+          <ul>
+            <li><strong>Capability:</strong> Framework-based phishing kits, off-the-shelf ransomware, credential stuffing bots.</li>
+            <li><strong>Motivation:</strong> Financial gain, resale of personal data, extortion leverage.</li>
+            <li><strong>Constraints:</strong> Limited zero-day access, relies on leaked credentials and misconfigurations.</li>
+          </ul>
+        </div>
+        <div class="assessment-card">
+          <h3>Risk Assessment Workflow</h3>
+          <ol>
+            <li><strong>Classify assets:</strong> Map systems storing regulated or mission-critical data.</li>
+            <li><strong>Model threats:</strong> Align attack methods to STRIDE/MITRE categories and business processes.</li>
+            <li><strong>Score exposure:</strong> Evaluate likelihood × impact with evidence (logs, vulnerability scans, audits).</li>
+            <li><strong>Decide response:</strong> Select mitigation, transfer, or acceptance with defined service-level targets.</li>
+            <li><strong>Track drift:</strong> Review metrics monthly, recalibrate based on incidents and new intel.</li>
+          </ol>
+        </div>
+        <div class="assessment-card">
+          <h3>Threat Intelligence Inputs</h3>
+          <ol>
+            <li>Industry ISAC alerts and regulatory advisories.</li>
+            <li>Endpoint telemetry triaged via detection engineering sprints.</li>
+            <li>Red-team findings and purple-team validation reports.</li>
+            <li>Supplier risk scores and third-party assessment results.</li>
+          </ol>
         </div>
       </div>
     </section>
