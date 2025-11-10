@@ -237,15 +237,15 @@
       <div class="sub-hero__insights">
         <div class="sub-hero__insight-card">
           <span>Median breach dwell time</span>
-          <span>21 days</span>
+          <span>10 days<sup><a href="#ref-mtrends2024">1</a></sup></span>
         </div>
         <div class="sub-hero__insight-card">
-          <span>Privacy attacks tracked</span>
-          <span>9 vectors</span>
+          <span>External breach notifications</span>
+          <span>54%<sup><a href="#ref-mtrends2024">1</a></sup></span>
         </div>
         <div class="sub-hero__insight-card">
-          <span>Response readiness goal</span>
-          <span>&lt; 4 hrs</span>
+          <span>Ransomware share of incidents</span>
+          <span>23%<sup><a href="#ref-ibm2024">2</a></sup></span>
         </div>
       </div>
     </div>
@@ -274,7 +274,7 @@
     <section class="unit-section unit-section--layered">
       <div class="unit-section__header">
         <h2>Privacy Attacks: Methods &amp; Modus Operandi</h2>
-        <p class="unit-section__intro">Understand how attackers chain reconnaissance, social engineering, and technical exploits to violate confidentiality. Each vector below includes common signals and immediate containment tactics.</p>
+        <p class="unit-section__intro">Understand how attackers chain reconnaissance, social engineering, and technical exploits to violate confidentiality. The 2024 landscape adds AI-enabled social engineering, model manipulation, and industrialized extortion to familiar tactics. Each vector below includes common signals and immediate containment tactics.</p>
       </div>
       <div class="attack-grid">
         <div class="attack-card">
@@ -287,12 +287,30 @@
           </ul>
         </div>
         <div class="attack-card">
+          <strong>AI-Synthesized Spear Phishing</strong>
+          <h3>Machine-crafted persuasion</h3>
+          <p>Large language models generate hyper-personalized lures and deepfake audio that weaponize company context at scale.<sup><a href="#ref-proofpoint2024">3</a></sup></p>
+          <ul>
+            <li>Signals: sudden rise in near-perfect grammar, cloned executive voices, look-alike supplier domains.</li>
+            <li>Counter: advanced email authentication, executive voice biometrics, real-time user coaching.</li>
+          </ul>
+        </div>
+        <div class="attack-card">
           <strong>Malware Implantation</strong>
           <h3>Payload-driven compromise</h3>
           <p>Dropper kits, ransomware, and info-stealers that escalate privilege and exfiltrate sensitive data stores.</p>
           <ul>
             <li>Signals: process injection, encrypted outbound spikes, lateral movement.</li>
             <li>Counter: application allow-listing, EDR containment, immutable backups.</li>
+          </ul>
+        </div>
+        <div class="attack-card">
+          <strong>Ransomware-as-a-Service</strong>
+          <h3>Franchise-grade extortion</h3>
+          <p>Affiliates rent turnkey encryptors, leak sites, and negotiation playbooks to monetize access rapidly.<sup><a href="#ref-sophos2024">4</a></sup></p>
+          <ul>
+            <li>Signals: double-extortion countdown sites, lateral credential harvesting, mass encryption tooling.</li>
+            <li>Counter: segmentation drills, golden image recovery, extortion response war rooms.</li>
           </ul>
         </div>
         <div class="attack-card">
@@ -305,30 +323,30 @@
           </ul>
         </div>
         <div class="attack-card">
-          <strong>Inference &amp; Linkage Attacks</strong>
-          <h3>Privacy erosion through correlation</h3>
-          <p>Combining anonymized datasets with public data to re-identify subjects or extract sensitive attributes.</p>
+          <strong>Data Poisoning</strong>
+          <h3>Model integrity sabotage</h3>
+          <p>Adversaries pollute training corpora or feedback loops to skew predictions and exfiltrate sensitive patterns.<sup><a href="#ref-enisa2024">5</a></sup></p>
           <ul>
-            <li>Signals: repeated queries on edge cases, cross-dataset joins.</li>
-            <li>Counter: differential privacy, query auditing, dataset minimization.</li>
+            <li>Signals: drift in model outputs, anomalous training data submissions, compromised data supply chains.</li>
+            <li>Counter: dataset provenance checks, adversarial testing, robust retraining pipelines.</li>
           </ul>
         </div>
         <div class="attack-card">
-          <strong>Insider Misuse</strong>
-          <h3>Privilege abuse and data hoarding</h3>
-          <p>Disgruntled or coerced employees abusing legitimate access channels to stage sensitive reports and intellectual property.</p>
+          <strong>LLM Prompt &amp; Response Abuse</strong>
+          <h3>Model jailbreaks &amp; data leakage</h3>
+          <p>Attackers coerce generative AI into disclosing sensitive information or executing unauthorized actions.<sup><a href="#ref-owasp2024">6</a></sup></p>
           <ul>
-            <li>Signals: off-hours downloads, USB copy attempts, policy overrides.</li>
-            <li>Counter: behavior analytics, insider response playbooks, just-in-time access.</li>
+            <li>Signals: repeated jailbreak strings, unexpected data egress via AI integrations, anomalous API usage.</li>
+            <li>Counter: guardrails, content filters, human-in-the-loop review for high-risk prompts.</li>
           </ul>
         </div>
         <div class="attack-card">
-          <strong>Traffic Interception</strong>
-          <h3>Man-in-the-middle &amp; session theft</h3>
-          <p>Adversaries hijack unencrypted traffic, SSL-stripping, or rogue Wi-Fi to steal tokens and manipulate transactions.</p>
+          <strong>Supply Chain Compromise</strong>
+          <h3>Trusted partner subversion</h3>
+          <p>Adversaries weaponize software updates or third-party access to pivot into primary environments.<sup><a href="#ref-dbir2024">7</a></sup></p>
           <ul>
-            <li>Signals: certificate mismatches, hotspot beacons, TLS downgrade.</li>
-            <li>Counter: HSTS, mutual TLS, secure remote access baselines.</li>
+            <li>Signals: anomalous vendor activity, tampered build artifacts, unsigned configuration changes.</li>
+            <li>Counter: continuous vendor risk scoring, SBOM validation, privileged access isolation.</li>
           </ul>
         </div>
       </div>
@@ -500,6 +518,18 @@
   <footer class="unit-page__footer">
     <div class="container">
       <p>© 2024 Data Privacy &amp; Security Learning Hub · Unit IV Guide</p>
+      <section class="unit-section" id="references">
+        <h2>2024 Threat Intelligence References</h2>
+        <ol>
+          <li id="ref-mtrends2024">Mandiant. (2024). <em>M-Trends 2024 Special Report</em>. Median global dwell time dropped to 10 days with 54% of intrusions reported by external entities. Retrieved from <a href="https://www.mandiant.com/resources/m-trends" target="_blank" rel="noopener">mandiant.com</a>.</li>
+          <li id="ref-ibm2024">IBM Security X-Force. (2024). <em>Threat Intelligence Index 2024</em>. Ransomware represented 23% of incident response engagements. Retrieved from <a href="https://www.ibm.com/reports/threat-intelligence" target="_blank" rel="noopener">ibm.com</a>.</li>
+          <li id="ref-proofpoint2024">Proofpoint. (2024). <em>State of the Phish 2024</em>. Highlights a surge in AI-generated business email compromise and voice deepfake phishing. Retrieved from <a href="https://www.proofpoint.com/us/resources/threat-reports/state-of-phish" target="_blank" rel="noopener">proofpoint.com</a>.</li>
+          <li id="ref-sophos2024">Sophos. (2024). <em>State of Ransomware 2024</em>. Documents the prevalence of ransomware-as-a-service affiliate operations. Retrieved from <a href="https://www.sophos.com/en-us/content/state-of-ransomware" target="_blank" rel="noopener">sophos.com</a>.</li>
+          <li id="ref-enisa2024">European Union Agency for Cybersecurity (ENISA). (2024). <em>Adversarial Threat Landscape for Artificial Intelligence</em>. Describes data poisoning and model integrity attacks targeting AI pipelines. Retrieved from <a href="https://www.enisa.europa.eu" target="_blank" rel="noopener">enisa.europa.eu</a>.</li>
+          <li id="ref-owasp2024">OWASP Foundation. (2024). <em>OWASP Top 10 for Large Language Model Applications</em>. Provides guidance on prompt injection, data leakage, and model abuse risks. Retrieved from <a href="https://owasp.org" target="_blank" rel="noopener">owasp.org</a>.</li>
+          <li id="ref-dbir2024">Verizon. (2024). <em>2024 Data Breach Investigations Report</em>. Notes the continued rise of partner-enabled supply chain intrusions. Retrieved from <a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener">verizon.com</a>.</li>
+        </ol>
+      </section>
     </div>
   </footer>
 </body>
