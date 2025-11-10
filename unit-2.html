@@ -26,16 +26,49 @@
       <div class="overview-highlights">
         <div class="overview-highlights__item">
           <span class="overview-highlights__label">Focus Areas</span>
-          <strong>Core cryptography, key lifecycles, deployment trade-offs</strong>
+          <strong>Core cryptography, post-quantum readiness, deployment trade-offs</strong>
         </div>
         <div class="overview-highlights__item">
           <span class="overview-highlights__label">Hands-on Labs</span>
-          <strong>Implementing AES &amp; RSA, protocol analysis, key exchange</strong>
+          <strong>Implementing AES &amp; RSA, PQ key encapsulation, modern AEAD benchmarking</strong>
         </div>
         <div class="overview-highlights__item">
           <span class="overview-highlights__label">Outcome</span>
           <strong>Design an encryption stack aligned to policy &amp; threat models</strong>
         </div>
+      </div>
+    </section>
+
+    <section class="unit-section">
+      <h2>Learning Objectives</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <span class="topic-card__tag">PQC</span>
+          <h3>Plan for Post-Quantum Migration</h3>
+          <ul class="topic-card__list">
+            <li>Explain NIST selections such as CRYSTALS-Kyber and CRYSTALS-Dilithium and where they strengthen current stacks.</li>
+            <li>Map hybrid key establishment patterns that introduce PQ schemes alongside classical primitives.</li>
+            <li>Assess inventory and performance considerations to prioritise PQ adoption roadmaps.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">AEAD</span>
+          <h3>Deploy Modern Authenticated Encryption</h3>
+          <ul class="topic-card__list">
+            <li>Contrast ChaCha20-Poly1305 with AES-GCM across software-only and hardware-accelerated environments.</li>
+            <li>Select nonce management and key rotation patterns that preserve confidentiality and integrity guarantees.</li>
+            <li>Benchmark throughput, latency, and energy implications for mobile and edge workloads.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">Lightweight</span>
+          <h3>Engineer for Constrained Platforms</h3>
+          <ul class="topic-card__list">
+            <li>Position Ascon within the lightweight cryptography landscape and recognise its NIST standardisation status.</li>
+            <li>Identify implementation pitfalls when optimising for memory, power, and side-channel resistance.</li>
+            <li>Define evaluation criteria to select ciphers for IoT, industrial, and safety-critical deployments.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
@@ -77,7 +110,7 @@
 
     <section class="unit-section">
       <h2>Cryptographic Algorithms</h2>
-      <p class="unit-section__intro">Deconstruct modern algorithms to understand what gives them strength, how they are configured, and where they are most effective.</p>
+      <p class="unit-section__intro">Deconstruct modern algorithms to understand what gives them strength, how they are configured, and where they are most effective—from classical primitives to post-quantum and lightweight contenders.</p>
       <div class="topic-grid">
         <article class="topic-card">
           <span class="topic-card__tag">AES</span>
@@ -106,6 +139,33 @@
             <li>Case study: migrate from DES-based VPNs to AES-256 with minimal downtime.</li>
           </ul>
         </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">PQC</span>
+          <h3>CRYSTALS-Kyber &amp; Dilithium</h3>
+          <ul class="topic-card__list">
+            <li>Study lattice-based hardness assumptions and parameter sets selected for NIST standardisation.</li>
+            <li>Prototype hybrid key establishment that combines Kyber KEM with classical TLS 1.3 handshakes.</li>
+            <li>Validate Dilithium signatures for software supply chain attestations and firmware updates.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">AEAD</span>
+          <h3>ChaCha20-Poly1305</h3>
+          <ul class="topic-card__list">
+            <li>Review the stream cipher and polynomial authenticator pairing that delivers AEAD properties.</li>
+            <li>Implement nonce derivation strategies suited for mobile clients and constrained randomness pools.</li>
+            <li>Lab: benchmark ChaCha20-Poly1305 against AES-GCM on ARM and x86 to guide deployment decisions.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">Ascon</span>
+          <h3>Lightweight Cryptography</h3>
+          <ul class="topic-card__list">
+            <li>Explore the sponge-based design and permutation schedule optimised for constrained devices.</li>
+            <li>Compare Ascon variants (AEAD &amp; hashing) to alternative lightweight ciphers and MACs.</li>
+            <li>Hands-on: evaluate implementation trade-offs for embedded controllers and sensor networks.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
@@ -129,6 +189,36 @@
             <li>Operational safeguards: key rotation cadences, secret storage, and audit logging.</li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <section class="unit-section">
+      <h2>Readings &amp; Resources</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <span class="topic-card__tag">PQC</span>
+          <h3>Post-Quantum Transitions</h3>
+          <ul class="topic-card__list">
+            <li><a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" rel="noopener">NIST PQC project overview</a> on algorithm selections, migration timelines, and draft standards.</li>
+            <li><a href="https://www.enisa.europa.eu/publications/post-quantum-cryptography-recommendations-for-transitioning" target="_blank" rel="noopener">ENISA transition recommendations</a> for inventorying crypto assets and planning hybrid rollouts.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">AEAD</span>
+          <h3>ChaCha20-Poly1305 Guidance</h3>
+          <ul class="topic-card__list">
+            <li><a href="https://www.rfc-editor.org/rfc/rfc8439" target="_blank" rel="noopener">RFC 8439</a> for the algorithm specification and implementation guidance.</li>
+            <li><a href="https://datatracker.ietf.org/doc/html/rfc9001" target="_blank" rel="noopener">QUIC/TLS 1.3 usage notes</a> illustrating deployment in latency-sensitive protocols.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">Ascon</span>
+          <h3>Lightweight Cryptography Standards</h3>
+          <ul class="topic-card__list">
+            <li><a href="https://csrc.nist.gov/projects/lightweight-cryptography" target="_blank" rel="noopener">NIST Lightweight Cryptography</a> portal covering the Ascon family selection.</li>
+            <li><a href="https://ascon.iaik.tugraz.at/" target="_blank" rel="noopener">Ascon reference site</a> with reference implementations, test vectors, and performance data.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
