@@ -15,14 +15,14 @@
       <a class="back-link" href="index.html">← Back to course overview</a>
       <span class="sub-hero__tag">UNIT III</span>
       <h1>Access Control &amp; Authentication</h1>
-      <p class="sub-hero__intro">Architect adaptive identity controls that balance frictionless access with provable trust. This unit examines cryptographic guarantees, threat-aware authentication, and the policies that enforce least privilege.</p>
+      <p class="sub-hero__intro">Architect adaptive identity controls that balance frictionless access with provable trust. This unit examines cryptographic guarantees, threat-aware authentication, phishing-resistant strategies, and the policies that enforce least privilege across FIDO2 and passkey-enabled ecosystems.</p>
     </div>
   </header>
 
   <main class="unit-page__main container">
     <section class="unit-section">
       <h2>Overview</h2>
-      <p class="unit-section__intro">Unit III guides you through designing, hardening, and verifying authentication journeys. We unpack the cryptographic primitives behind digital trust, map adversary tactics against identity systems, and translate policy to resilient access control patterns.</p>
+      <p class="unit-section__intro">Unit III guides you through designing, hardening, and verifying authentication journeys. We unpack the cryptographic primitives behind digital trust, map adversary tactics against identity systems, and translate policy to resilient access control patterns reinforced by FIDO2 and passkey adoption insights.</p>
 
       <div class="overview-highlights">
         <div class="overview-highlights__item">
@@ -35,8 +35,38 @@
         </div>
         <div class="overview-highlights__item">
           <span class="overview-highlights__label">OUTCOMES</span>
-          Evaluate control strength, anticipate threats, and engineer measurable trust.
+          Evaluate control strength, anticipate threats, and engineer measurable trust with phishing-resistant authenticators.
         </div>
+      </div>
+    </section>
+
+    <section class="unit-section">
+      <h2>Learning Objectives</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <span class="topic-card__tag">Strategy</span>
+          <h3>Engineer Phishing-Resistant Journeys</h3>
+          <ul class="topic-card__list">
+            <li>Design adaptive authentication flows that prioritize WebAuthn, FIDO2 security keys, and synced passkeys.</li>
+            <li>Map assurance levels to phishing-resistant control families without sacrificing inclusive recovery paths.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">Analytics</span>
+          <h3>Interpret Adoption Signals</h3>
+          <ul class="topic-card__list">
+            <li>Analyze industry metrics, like the FIDO Alliance 2023 barometer reporting 53% passkey awareness and 57% passwordless usage, to inform rollout roadmaps.</li>
+            <li>Prioritize investment by contrasting organizational readiness with consumer demand for passkey experiences.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">Operations</span>
+          <h3>Validate Controls &amp; Assurance</h3>
+          <ul class="topic-card__list">
+            <li>Establish assessment criteria for phishing-resistant authenticators, including attestation checks and possession proof.</li>
+            <li>Document success metrics that tie FIDO2 adoption to measurable reductions in credential phishing incidents.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
@@ -83,8 +113,8 @@
         <article class="insight-card">
           <h3 class="insight-card__lede">Authentication Methods</h3>
           <ul>
-            <li>Compare knowledge, possession, inherence, and context-aware signals.</li>
-            <li>Adopt risk-based authentication to elevate factors dynamically.</li>
+            <li>Compare knowledge, possession, inherence, context-aware signals, and passkey-backed FIDO2 authenticators.</li>
+            <li>Adopt risk-based authentication to elevate factors dynamically while defaulting to phishing-resistant options.</li>
             <li>Integrate adaptive authorization policies with policy decision points.</li>
           </ul>
         </article>
@@ -93,7 +123,7 @@
           <ul>
             <li>Catalogue phishing, credential stuffing, MFA fatigue, and SIM swap tactics.</li>
             <li>Map MITRE ATT&amp;CK techniques to identity-centric kill chains.</li>
-            <li>Introduce anomaly detection, device binding, and secure recovery routes.</li>
+            <li>Introduce anomaly detection, device binding, and secure recovery routes anchored in phishing-resistant fallback design.</li>
           </ul>
         </article>
         <article class="insight-card">
@@ -157,17 +187,17 @@
         <article class="dp-card dp-card--highlight">
           <h3>MFA Architectures</h3>
           <ul>
-            <li>Design push, TOTP, FIDO2, and hardware security key flows.</li>
-            <li>Apply phishing-resistant authenticators and attestation validation.</li>
-            <li>Balance synchronous (online) vs. offline OTP experiences for reliability.</li>
+            <li>Design push, TOTP, FIDO2, and hardware security key flows with native passkey enrollment.</li>
+            <li>Apply phishing-resistant authenticators, enforce attestation validation, and monitor device binding integrity.</li>
+            <li>Balance synchronous (online) vs. offline OTP experiences for reliability while steering users toward FIDO2-first paths.</li>
           </ul>
         </article>
         <article class="dp-card">
           <h3>Resilience &amp; Recovery</h3>
           <ul>
             <li>Provision break-glass accounts with continuous monitoring.</li>
-            <li>Leverage account recovery codes, WebAuthn resident keys, and device escrow.</li>
-            <li>Automate factor lifecycle: enrollment, revocation, and audit logging.</li>
+            <li>Leverage account recovery codes, WebAuthn resident keys, synced passkeys, and device escrow.</li>
+            <li>Automate factor lifecycle: enrollment, revocation, and audit logging with phishing-resistant coverage metrics.</li>
           </ul>
         </article>
         <article class="dp-card">
@@ -175,9 +205,12 @@
           <ul>
             <li>Trigger adaptive MFA based on risk signals and contextual scoring.</li>
             <li>Implement progressive profiling to gather signals post-onboarding.</li>
-            <li>Educate users on recognizing spoofed prompts and fatigue attacks.</li>
+            <li>Educate users on recognizing spoofed prompts and fatigue attacks, emphasizing how passkeys mitigate credential phishing.</li>
           </ul>
         </article>
+      </div>
+      <div class="callout-panel">
+        <strong>Adoption Insight:</strong> The FIDO Alliance's 2023 Online Authentication Barometer recorded 53% global awareness of passkeys and 57% of consumers using passwordless experiences—use these benchmarks to set rollout targets and executive KPIs.
       </div>
     </section>
 
@@ -235,6 +268,24 @@
             <p>Instrument distributed tracing, tamper-evident logs, and alerting on anomaly signals like repeated failures or cross-tenant access attempts.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="unit-section">
+      <h2>Assessments &amp; Applied Practice</h2>
+      <div class="next-actions">
+        <article class="next-actions__item">
+          <span class="next-actions__label">Passkey Integration Lab</span>
+          <p>Implement a WebAuthn passkey flow in a demo application, validate attestation statements, and document mitigations for phishing campaigns targeting enrollment.</p>
+        </article>
+        <article class="next-actions__item">
+          <span class="next-actions__label">Adoption Metrics Brief</span>
+          <p>Interpret recent FIDO2 adoption data, forecast organizational readiness milestones, and create an executive dashboard that ties awareness statistics to rollout OKRs.</p>
+        </article>
+        <article class="next-actions__item">
+          <span class="next-actions__label">Threat Emulation Report</span>
+          <p>Conduct a tabletop exercise simulating credential phishing, MFA fatigue, and consent phishing attempts, then recommend layered, phishing-resistant controls.</p>
+        </article>
       </div>
     </section>
   </main>
