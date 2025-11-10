@@ -205,12 +205,22 @@ a:focus {
 }
 
 .unit {
+  display: block;
   background: linear-gradient(145deg, #ffffff, #f3f7ff);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   padding: 2rem;
   margin-bottom: 2rem;
   border: 1px solid rgba(44, 110, 242, 0.12);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.unit--link:hover,
+.unit--link:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 45px -25px rgba(31, 56, 109, 0.5);
 }
 
 .unit__header {
@@ -244,28 +254,33 @@ a:focus {
   color: var(--color-text-muted);
 }
 
-.unit__body {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+.unit__summary {
+  margin: 1.5rem 0 1.75rem;
+  color: var(--color-text);
 }
 
-.unit__body h4 {
-  margin: 0 0 0.8rem;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.unit__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
   color: var(--color-primary);
+  transition: color 0.2s ease;
 }
 
-.unit__body ul {
-  padding-left: 1.1rem;
-  margin: 0;
+.unit__cta span:last-child {
+  display: inline-block;
+  transition: transform 0.2s ease;
 }
 
-.unit__body li {
-  margin-bottom: 0.6rem;
+.unit--link:hover .unit__cta,
+.unit--link:focus .unit__cta {
+  color: var(--color-primary-dark);
+}
+
+.unit--link:hover .unit__cta span:last-child,
+.unit--link:focus .unit__cta span:last-child {
+  transform: translateX(4px);
 }
 
 .callout {
@@ -301,6 +316,126 @@ a:focus {
 .callout__btn:hover,
 .callout__btn:focus {
   transform: translateY(-2px);
+}
+
+.unit-page {
+  background: var(--color-bg);
+}
+
+.sub-hero {
+  background: linear-gradient(135deg, rgba(44, 110, 242, 0.92), rgba(91, 209, 183, 0.75));
+  color: #ffffff;
+  padding: 3.5rem 0 2.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.sub-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><defs><linearGradient id="g2" x1="0" x2="1" y1="1" y2="0"><stop stop-color="%23ffffff" stop-opacity="0.15"/><stop offset="1" stop-color="%23ffffff" stop-opacity="0"/></linearGradient></defs><rect width="400" height="400" fill="url(%23g2)"/></svg>');
+  opacity: 0.6;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.sub-hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 720px;
+}
+
+.back-link {
+  color: #ffffff;
+  opacity: 0.85;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.back-link:hover,
+.back-link:focus {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.sub-hero__tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+.sub-hero__intro {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.unit-page__main {
+  margin: 3rem auto 4rem;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.unit-section {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(44, 110, 242, 0.08);
+}
+
+.unit-section h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.unit-section__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.unit-section__grid h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+}
+
+.unit-section ul,
+.unit-section ol {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.unit-section li {
+  margin-bottom: 0.6rem;
+}
+
+.unit-page__footer {
+  padding: 0 0 3rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.unit-page__footer p {
+  margin: 0;
+  font-size: 0.95rem;
 }
 
 .footer {
@@ -390,6 +525,10 @@ a:focus {
 
   .unit {
     padding: 1.75rem;
+  }
+
+  .unit-page__main {
+    margin: 2.5rem auto 3rem;
   }
 }
 
