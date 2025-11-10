@@ -22,45 +22,135 @@
   <main class="unit-page__main container">
     <section class="unit-section">
       <h2>Overview</h2>
-      <p>Unit II explores the mechanisms that keep communications confidential and tamper resistant. Through labs and case studies, learners evaluate the strengths and trade-offs of symmetric, asymmetric, and hashing approaches.</p>
+      <p class="unit-section__intro">Unit II is a deep dive into the math, mechanics, and implementation patterns that safeguard confidentiality. The module links foundational concepts to hands-on labs so you can evaluate which encryption method fits a given risk profile and compliance mandate.</p>
+      <div class="overview-highlights">
+        <div class="overview-highlights__item">
+          <span class="overview-highlights__label">Focus Areas</span>
+          <strong>Core cryptography, key lifecycles, deployment trade-offs</strong>
+        </div>
+        <div class="overview-highlights__item">
+          <span class="overview-highlights__label">Hands-on Labs</span>
+          <strong>Implementing AES &amp; RSA, protocol analysis, key exchange</strong>
+        </div>
+        <div class="overview-highlights__item">
+          <span class="overview-highlights__label">Outcome</span>
+          <strong>Design an encryption stack aligned to policy &amp; threat models</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="unit-section unit-section--layered">
+      <div class="unit-section__header">
+        <h2>Concepts of Cryptography</h2>
+        <p class="unit-section__intro">Establish a precise vocabulary for confidentiality, integrity, and authenticity before contrasting symmetric and asymmetric paradigms.</p>
+      </div>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <span class="topic-card__tag">Symmetric</span>
+          <h3>Shared Secret Encryption</h3>
+          <ul class="topic-card__list">
+            <li>Explore block vs. stream cipher behaviour and padding modes.</li>
+            <li>Evaluate key distribution challenges and the role of pre-shared secrets.</li>
+            <li>Hands-on: encrypt data-at-rest using AES-GCM with secure IV management.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">Asymmetric</span>
+          <h3>Public Key Ecosystems</h3>
+          <ul class="topic-card__list">
+            <li>Understand key pairs, trapdoor functions, and trust anchors.</li>
+            <li>Compare RSA, ECC, and hybrid envelope encryption for session keys.</li>
+            <li>Hands-on: build a certificate chain and perform mutual TLS validation.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">Hybrid</span>
+          <h3>Combining Strengths</h3>
+          <ul class="topic-card__list">
+            <li>Design hybrid protocols that leverage asymmetric key exchange with symmetric bulk encryption.</li>
+            <li>Discuss forward secrecy, key rotation windows, and escrow considerations.</li>
+            <li>Map cryptographic choices to organizational threat models and SLAs.</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section class="unit-section">
-      <h2>Key Topics</h2>
-      <ul>
-        <li>Cryptographic primitives including block and stream ciphers.</li>
-        <li>Public key infrastructure, certificate validation, and trust chains.</li>
-        <li>Key management lifecycles spanning generation, rotation, and escrow.</li>
-        <li>Integrity controls using hashing, HMACs, and digital signatures.</li>
-      </ul>
-    </section>
-
-    <section class="unit-section">
-      <h2>Lab Progression</h2>
-      <ol>
-        <li>Contrast symmetric and asymmetric encryption through worked examples.</li>
-        <li>Implement AES and RSA using a preferred programming language or toolkit.</li>
-        <li>Secure messages with signing, hashing, and verification workflows.</li>
-        <li>Evaluate key storage patterns for distributed and multi-tenant deployments.</li>
-      </ol>
+      <h2>Cryptographic Algorithms</h2>
+      <p class="unit-section__intro">Deconstruct modern algorithms to understand what gives them strength, how they are configured, and where they are most effective.</p>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <span class="topic-card__tag">AES</span>
+          <h3>Advanced Encryption Standard</h3>
+          <ul class="topic-card__list">
+            <li>Review Rijndael structure, key sizes, and substitution-permutation networks.</li>
+            <li>Implement AES in CBC and GCM modes; analyze authentication benefits.</li>
+            <li>Lab: benchmark performance impacts of hardware acceleration (AES-NI).</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">RSA</span>
+          <h3>Rivest–Shamir–Adleman</h3>
+          <ul class="topic-card__list">
+            <li>Factorization hardness, key generation entropy, and modulus selection.</li>
+            <li>Encrypt, decrypt, and sign with padding schemes (OAEP, PSS).</li>
+            <li>Lab: rotate RSA keys while preserving compatibility with PKI tooling.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">DES</span>
+          <h3>Data Encryption Standard</h3>
+          <ul class="topic-card__list">
+            <li>Trace the historical impact of DES and why it is no longer sufficient alone.</li>
+            <li>Experiment with Triple DES (3DES) to understand legacy system support.</li>
+            <li>Case study: migrate from DES-based VPNs to AES-256 with minimal downtime.</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section class="unit-section unit-section--split">
       <div class="unit-section__grid">
         <div>
-          <h3>Recommended Resources</h3>
+          <h3>Encryption Standards</h3>
           <ul>
-            <li><a href="#">Video Lecture: Symmetric vs Asymmetric Encryption</a></li>
-            <li><a href="#">Lab Guide: Implementing AES &amp; RSA in Python</a></li>
-            <li><a href="#">Reference: Hashing Algorithms Cheat Sheet</a></li>
+            <li>NIST SP 800-57 and 800-38 series guidance for key management and modes of operation.</li>
+            <li>ISO/IEC 27002 controls for encryption policy, custodianship, and lifecycle management.</li>
+            <li>FIPS 140-3 validation considerations for hardware security modules (HSMs).</li>
+            <li>Industry mandates such as PCI DSS and HIPAA security rules.</li>
           </ul>
         </div>
         <div>
-          <h3>Learning Activities</h3>
+          <h3>Applications &amp; Architecture</h3>
           <ul>
-            <li>Decode a secure message using provided key pairs and validate integrity with hashing.</li>
-            <li>Evaluate key management strategies for a multi-tenant application.</li>
+            <li>Secure channels: TLS 1.3, IPsec, WireGuard, and SSH session negotiation.</li>
+            <li>Data-at-rest protection: database TDE, file-level encryption, and cloud KMS integrations.</li>
+            <li>Application-layer patterns: JSON Web Encryption (JWE) and envelope encryption for APIs.</li>
+            <li>Operational safeguards: key rotation cadences, secret storage, and audit logging.</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="unit-section unit-section--next">
+      <div class="next-steps">
+        <div>
+          <h2>Putting It All Together</h2>
+          <p class="unit-section__intro">Bridge theory with implementation by designing a secure messaging blueprint that justifies cryptographic selections to executive stakeholders and auditors.</p>
+        </div>
+        <div class="next-actions">
+          <div class="next-actions__item">
+            <span class="next-actions__label">Capstone</span>
+            <p>Deliver a threat-informed encryption architecture for a distributed SaaS product, including fallback plans for key compromise.</p>
+          </div>
+          <div class="next-actions__item">
+            <span class="next-actions__label">Checklist</span>
+            <p>Document compliance mappings, algorithm selection rationale, and monitoring metrics for confidentiality controls.</p>
+          </div>
+          <div class="next-actions__item">
+            <span class="next-actions__label">Reflection</span>
+            <p>Assess trade-offs between usability and cryptographic rigor, highlighting residual risks and mitigation strategies.</p>
+          </div>
         </div>
       </div>
     </section>
