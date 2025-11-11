@@ -506,6 +506,112 @@
       <p class="unit-reference-note">Reference these standards in lab reports and architecture diagrams to demonstrate defensible algorithm and key management choices.</p>
     </section>
 
+    <section class="unit-section">
+      <div class="unit-section__header">
+        <h2>Lesson Blueprint</h2>
+        <p>Guide learners through a 3.5-hour experience that links encryption fundamentals with deployment trade-offs.</p>
+      </div>
+      <div class="lesson-plan">
+        <div class="lesson-plan__grid">
+          <article class="lesson-card">
+            <h3>Learning Objectives</h3>
+            <ul>
+              <li>Compare symmetric, asymmetric, and hybrid cryptographic patterns for diverse workloads.</li>
+              <li>Design key management processes that withstand operational, regulatory, and quantum-era pressures.</li>
+              <li>Evaluate encryption implementations for performance, resilience, and compliance evidence.</li>
+            </ul>
+            <details>
+              <summary>Timing guidance</summary>
+              <p>Reserve 40 minutes for concept framing, 60 minutes for hands-on labs, and 30 minutes for benchmarking reviews and peer feedback.</p>
+            </details>
+          </article>
+          <article class="lesson-card">
+            <h3>Key Topics &amp; Vocabulary</h3>
+            <ul>
+              <li>Block vs. stream ciphers, AEAD modes, elliptic-curve cryptography, and PQC algorithms.</li>
+              <li>Key derivation, rotation cadences, split knowledge, and HSM/secure enclave deployment.</li>
+              <li>Confidentiality assurance requirements in DPDP, PCI DSS, HIPAA, and SOC 2.</li>
+            </ul>
+            <details>
+              <summary>Glossary micro-quiz</summary>
+              <p>Post vocabulary flashcards in the LMS and conduct a live poll to surface misconceptions before labs begin.</p>
+            </details>
+          </article>
+          <article class="lesson-card">
+            <h3>Learning Activities</h3>
+            <ul>
+              <li>Case analysis of <em>VeloxPay</em> with threat-informed algorithm selection debates.</li>
+              <li>Authenticated encryption lab implementing AES-GCM, ChaCha20-Poly1305, and PQC KEM prototypes.</li>
+              <li>Performance benchmarking and risk register updates comparing options.</li>
+            </ul>
+            <details>
+              <summary>Interactive lab toggle</summary>
+              <p>Share the lab guide through the toggle and encourage learners to annotate throughput vs. latency findings for later assessments.</p>
+            </details>
+          </article>
+          <article class="lesson-card">
+            <h3>Discussion Prompts</h3>
+            <ul>
+              <li>Where do usability requirements collide with cryptographic rigor in your environment?</li>
+              <li>How do you balance algorithm agility with regulatory certification cycles?</li>
+              <li>What telemetry best validates the health of your encryption programme?</li>
+            </ul>
+            <details>
+              <summary>Facilitator cues</summary>
+              <p>Capture responses in a shared document to inform future threat modelling activities and cross-unit linkages.</p>
+            </details>
+          </article>
+          <article class="lesson-card">
+            <h3>Assessment &amp; Evidence</h3>
+            <ul>
+              <li>Submit the Encryption Design Canvas with annotated benchmarking outputs.</li>
+              <li>Upload lab logs demonstrating successful AEAD implementation and rotation alerts.</li>
+              <li>Deliver a two-page architecture memo defending algorithm choices to a mock review board.</li>
+            </ul>
+            <details>
+              <summary>Scoring rubric</summary>
+              <p>Evaluate accuracy of cryptographic reasoning, completeness of key lifecycle documentation, and clarity of risk mitigations.</p>
+            </details>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="unit-section unit-section--reference">
+      <h2>Instructional Resources</h2>
+      <p class="unit-section__intro">Equip students with these artefacts to ensure productive lab time and rigorous assessments.</p>
+      <div class="resource-deck">
+        <div class="resource-group">
+          <h3>Readings &amp; Briefs</h3>
+          <ul>
+            <li><a href="assets/unit-2/case-study.md" download>Case Study: VeloxPay Encryption Modernisation</a> — reference during breakout debates.</li>
+            <li><a href="assets/unit-2/worksheet.md" download>Worksheet: Encryption Design Canvas</a> — structure analysis and reflections.</li>
+            <li>NIST SP 800-57 Part 1 excerpts on key management best practices.</li>
+          </ul>
+        </div>
+        <div class="resource-group">
+          <h3>Labs &amp; Practice</h3>
+          <ul>
+            <li><a href="assets/unit-2/lab-guide.md" download>Lab Guide: Implementing Authenticated Encryption</a> — includes performance measurement templates.</li>
+            <li>Container images and scripts for AES-GCM, ChaCha20-Poly1305, and PQC KEM exercises.</li>
+            <li>Benchmark spreadsheet to capture throughput, CPU usage, and latency.</li>
+          </ul>
+        </div>
+        <div class="resource-group">
+          <h3>Slides &amp; Facilitation</h3>
+          <ul>
+            <li><a href="assets/unit-2/slide-deck-outline.md" download>Slide Deck Outline: Encryption Techniques</a> — adapt for lectures and stakeholder briefings.</li>
+            <li>Demo videos illustrating TLS handshake packet flows and error states.</li>
+            <li>Decision matrix template comparing algorithm choices and key management options.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="supplementary-links">
+        <a href="assets/unit-2/case-study.md" download>Download the VeloxPay case packet</a>
+        <a href="assets/unit-2/worksheet.md" download>Download the Encryption Design Canvas worksheet</a>
+      </div>
+    </section>
+
     <section class="unit-section unit-section--next">
       <div class="next-steps">
         <div>
