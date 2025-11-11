@@ -159,6 +159,23 @@
       align-items: stretch;
     }
 
+    .integration-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+
+    .integration-card {
+      background: linear-gradient(165deg, rgba(15, 21, 42, 0.07), rgba(44, 110, 242, 0.14));
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      border: 1px solid rgba(44, 110, 242, 0.16);
+      box-shadow: 0 20px 36px -30px rgba(27, 31, 59, 0.55);
+      display: grid;
+      gap: 0.75rem;
+    }
+
     .persona-card {
       background: rgba(44, 110, 242, 0.08);
       border-radius: var(--radius-md);
@@ -390,6 +407,49 @@
             <li>Honeypots and decoy credentials to detect intrusions.</li>
             <li>Browser isolation for high-risk roles.</li>
             <li>Immutable backups &amp; cyber recovery drills.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="unit-section unit-section--layered">
+      <h2>Advanced Platforms in the Layered Defense Mix</h2>
+      <p class="unit-section__intro">Modern data programs weave specialized platforms into the core stack so that each protection layer reinforces the next. The capabilities below harden compute, collaboration, access, and validation workflows while sharing telemetry with the broader defense fabric.</p>
+      <div class="integration-grid">
+        <div class="integration-card">
+          <h3>Confidential Computing</h3>
+          <p>Trusted execution environments shield data in use, extending encryption assurances beyond storage and transit.</p>
+          <ul>
+            <li><strong>Layer fit:</strong> Anchors the compute layer by isolating workloads even on shared infrastructure.</li>
+            <li><strong>Defense linkage:</strong> Attestation feeds identity and policy engines so that only verified enclaves process regulated data.</li>
+            <li><strong>Response synergy:</strong> Cryptographic proofs enrich incident workflows, accelerating containment of host-level attacks.</li>
+          </ul>
+        </div>
+        <div class="integration-card">
+          <h3>Data Clean Rooms</h3>
+          <p>Controlled collaboration environments allow parties to analyze combined datasets without exposing raw records.</p>
+          <ul>
+            <li><strong>Layer fit:</strong> Bolsters the collaboration and analytics layer by enforcing query-level privacy controls.</li>
+            <li><strong>Defense linkage:</strong> Shares audit telemetry with DLP and governance tools to watch for model or export abuse.</li>
+            <li><strong>Response synergy:</strong> Predefined egress rules support rapid rollback if a partner environment shows compromise.</li>
+          </ul>
+        </div>
+        <div class="integration-card">
+          <h3>Zero-Trust Data Access</h3>
+          <p>Continuous verification of user, device, and session context before granting granular data permissions.</p>
+          <ul>
+            <li><strong>Layer fit:</strong> Sits between identity and data layers, enforcing least privilege down to field-level policies.</li>
+            <li><strong>Defense linkage:</strong> Consumes signals from EDR, CASB, and risk scoring to adapt entitlements in real time.</li>
+            <li><strong>Response synergy:</strong> Automates session revocation and step-up challenges when anomalies trigger from adjacent layers.</li>
+          </ul>
+        </div>
+        <div class="integration-card">
+          <h3>Breach &amp; Attack Simulation</h3>
+          <p>Continuously validates that layered defenses detect and block attack paths before adversaries exploit them.</p>
+          <ul>
+            <li><strong>Layer fit:</strong> Overlays every layer with automated adversary emulation campaigns.</li>
+            <li><strong>Defense linkage:</strong> Maps telemetry gaps to SIEM, SOAR, and detection engineering backlogs.</li>
+            <li><strong>Response synergy:</strong> Prioritizes control tuning and tabletop exercises based on real coverage data.</li>
           </ul>
         </div>
       </div>
