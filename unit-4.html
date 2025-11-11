@@ -571,6 +571,63 @@
             <li>Supplier risk scores and third-party assessment results.</li>
           </ol>
         </div>
+        <div class="assessment-card">
+          <h3>FAIR Quantitative Modelling</h3>
+          <p>Translate qualitative scenarios into financial terms with the Factor Analysis of Information Risk (FAIR) taxonomy.</p>
+          <ol>
+            <li><strong>Define loss scenario:</strong> Identify the asset, threat actor, and effect (e.g., data exfiltration via compromised VPN).</li>
+            <li><strong>Estimate Loss Event Frequency:</strong> Calibrate threat event frequency and vulnerability ranges using historical incidents and control coverage.</li>
+            <li><strong>Estimate Loss Magnitude:</strong> Separate primary (response, containment) and secondary (regulatory, reputational) losses with min/most/max values.</li>
+            <li><strong>Run Monte Carlo:</strong> Use open FAIR tools (RiskLens, FAIR-U, or Excel simulators) to produce Value at Risk distributions.</li>
+            <li><strong>Prioritize response:</strong> Compare Annualized Loss Exposure (ALE) against mitigation investments to select risk treatment.</li>
+          </ol>
+          <p><strong>Template Snapshot:</strong></p>
+          <ul>
+            <li><em>Scenario ID:</em> FAIR-2024-XX &mdash; &lt;Business Process&gt;</li>
+            <li><em>Asset at Risk:</em> System / Data classification</li>
+            <li><em>LEF Inputs:</em> TEF: <span>__</span> / year, Vuln: <span>__</span>%</li>
+            <li><em>LM Inputs:</em> Primary Loss: ₹<span>__</span> (min/most/max), Secondary Loss: ₹<span>__</span></li>
+            <li><em>Result:</em> P(₹ loss &gt; threshold) = <span>__</span>% | ALE = ₹<span>__</span></li>
+          </ul>
+        </div>
+        <div class="assessment-card">
+          <h3>SOAR Playbook Workflow</h3>
+          <p>Automation-ready sequence aligning detection to response using Security Orchestration, Automation, and Response tooling.</p>
+          <ol>
+            <li><strong>Trigger:</strong> High-risk alert from SIEM or DLP webhook posts to SOAR platform (e.g., Splunk SOAR, Palo Alto Cortex XSOAR).</li>
+            <li><strong>Enrich:</strong> SOAR fetches asset context, recent authentications, and vulnerability status via API integrations.</li>
+            <li><strong>Decide:</strong> Conditional logic checks FAIR loss exposure thresholds and business impact tags.</li>
+            <li><strong>Respond:</strong> Automate quarantine, credential reset, and notification tasks while opening an incident ticket.</li>
+            <li><strong>Review:</strong> Human analyst approves closure, attaches post-incident FAIR update, and triggers CERT-In reporting workflow if required.</li>
+          </ol>
+          <p><strong>Playbook Template:</strong></p>
+          <ul>
+            <li><em>Playbook Name:</em> &lt;Use Case&gt; &mdash; v1.0</li>
+            <li><em>Inputs:</em> Alert source, asset owner, severity, FAIR scenario ID</li>
+            <li><em>Automations:</em> Enrichment connector → Decision branch → Action block → Ticketing</li>
+            <li><em>Approvals:</em> Analyst role + service owner sign-off</li>
+            <li><em>Outputs:</em> Updated incident record, notification log, regulatory evidence bundle</li>
+          </ul>
+        </div>
+        <div class="assessment-card">
+          <h3>CERT-In Reporting Timeline</h3>
+          <p>Meet Indian Computer Emergency Response Team (CERT-In) requirements with a defined notification cadence.</p>
+          <ul>
+            <li><strong>T+0 Hours:</strong> SOAR playbook flags potential reportable incident and notifies legal/compliance.</li>
+            <li><strong>T+4 Hours:</strong> Confirm incident category (per CERT-In directive) and capture mandatory artefacts (logs, system time stamps, contact details).</li>
+            <li><strong>T+6 Hours:</strong> Submit preliminary report via CERT-In incident portal or email (format: Annexure I) with FAIR scenario reference and containment steps.</li>
+            <li><strong>T+24 Hours:</strong> Provide update on mitigation status, affected systems, and data impact; store submission receipt in evidence register.</li>
+            <li><strong>T+72 Hours:</strong> Deliver final remediation summary, including SOAR playbook metrics and revised FAIR loss estimates.</li>
+          </ul>
+          <p><strong>Reporting Checklist Template:</strong></p>
+          <ul>
+            <li>Incident Reference: CERT-In-YYYY-XXXX</li>
+            <li>Point of Contact: Name, designation, phone, email</li>
+            <li>System Details: IP/FQDN, service description, timezone</li>
+            <li>Impact Summary: Records/data types, business functions, estimated loss (FAIR)</li>
+            <li>Actions Taken: SOAR steps executed, containment controls, recovery status</li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
