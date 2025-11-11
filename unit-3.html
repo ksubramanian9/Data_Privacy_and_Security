@@ -121,9 +121,29 @@
         <article class="insight-card insight-card--accent">
           <h3 class="insight-card__lede">Threat Landscape</h3>
           <ul>
-            <li>Catalogue phishing, credential stuffing, MFA fatigue, and SIM swap tactics.</li>
-            <li>Map MITRE ATT&amp;CK techniques to identity-centric kill chains.</li>
-            <li>Introduce anomaly detection, device binding, and secure recovery routes anchored in phishing-resistant fallback design.</li>
+            <li>
+              <strong>Supply-chain compromises:</strong> Identity providers, SDKs, and dependency pipelines can be trojanized to
+              deliver backdoored authentication logic. Pair provenance validation and signed artifact enforcement with
+              <abbr title="MITRE D3FEND">D3FEND</abbr> countermeasures like <em>D3-Supply Chain Hardening</em> and
+              <em>D3-Artifact Signing</em>, and mirror the 2023 CISA/NSA secure-by-design call to verify third-party identity
+              services before integration.
+            </li>
+            <li>
+              <strong>OAuth/OIDC session fixation:</strong> Attackers reuse legitimate authorization codes or session identifiers to
+              hijack tokens. Bind sessions to proof-of-possession keys, enforce PKCE + nonce validation, and adopt
+              <em>D3-Token Binding</em> alongside secure-by-default cookie attributes to neutralize fixation vectors.
+            </li>
+            <li>
+              <strong>Phishing &amp; credential replay:</strong> Credential stuffing, MFA fatigue, and SIM swaps persist as primary
+              credential theft paths. Deploy phishing-resistant authenticators, adaptive risk scoring, and
+              <em>D3-Multi-Factor Authentication</em> controls guided by CISA/NSA recommendations to default to secure
+              enrollment, recovery, and monitoring baselines.
+            </li>
+            <li>
+              <strong>Identity system tampering:</strong> Adversaries manipulate configuration, logs, or signing keys to evade
+              detection. Instrument immutable logging, quorum-based administration, and <em>D3-Configuration Hardening</em> to
+              detect and contain manipulation attempts.
+            </li>
           </ul>
         </article>
         <article class="insight-card">
