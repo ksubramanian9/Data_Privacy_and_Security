@@ -246,6 +246,88 @@
       </div>
     </section>
 
+    <section class="unit-section unit-section--layered">
+      <div class="unit-section__header">
+        <h2>Hands-on Lab Modules</h2>
+        <p class="unit-section__intro">Translate protocol theory into operational muscle memory with scenario-driven labs that
+          emphasise measurement, troubleshooting, and governance outcomes.</p>
+      </div>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <span class="topic-card__tag">TLS 1.3</span>
+          <h3>Low-Latency TLS 1.3 &amp; QUIC Tuning</h3>
+          <ul class="topic-card__list">
+            <li><strong>Scenario:</strong> instrument handshake performance over HTTP/3 while comparing resumption tickets,
+              0-RTT data, and anti-replay controls.</li>
+            <li><strong>Tooling:</strong> <code>nghttp3</code>, <code>quiche</code>, Wireshark QUIC dissectors, browser devtools,
+              and <code>openssl s_client -tls1_3</code> for baseline captures.</li>
+            <li><strong>Assessment rubric:</strong>
+              <ul>
+                <li><em>Exemplary:</em> documents handshake traces, cipher suite negotiation, and RTT deltas with remediation
+                  recommendations.</li>
+                <li><em>Proficient:</em> captures packet flows and identifies optimisation levers for ticket reuse and loss
+                  recovery.</li>
+                <li><em>Developing:</em> establishes a working QUIC channel but lacks telemetry or security rationale.</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">DNS</span>
+          <h3>Encrypted DNS Deployments</h3>
+          <ul class="topic-card__list">
+            <li><strong>Scenario:</strong> configure split-brain name resolution using DNS over HTTPS and DNS over TLS with
+              fallback and policy logging.</li>
+            <li><strong>Tooling:</strong> <code>cloudflared</code>, <code>stubby</code>, <code>kdig</code>, Pi-hole or CoreDNS for
+              policy enforcement, plus browser DoH settings for client validation.</li>
+            <li><strong>Assessment rubric:</strong>
+              <ul>
+                <li><em>Exemplary:</em> articulates latency/security trade-offs, automates policy checks, and records
+                  certificate pinning evidence.</li>
+                <li><em>Proficient:</em> deploys encrypted resolvers with monitoring dashboards and alert thresholds.</li>
+                <li><em>Developing:</em> enables DoH/DoT manually without documenting governance or fallback behaviour.</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">Messaging</span>
+          <h3>Secure Messaging Protocol Comparatives</h3>
+          <ul class="topic-card__list">
+            <li><strong>Scenario:</strong> evaluate Signal Double Ratchet, MLS, and Matrix Olm/Megolm session establishment for
+              group collaboration.</li>
+            <li><strong>Tooling:</strong> <code>libsignal</code> reference CLI, OpenMLS playground, Matrix Synapse testbed, and
+              <code>mitmproxy</code> for negative testing.</li>
+            <li><strong>Assessment rubric:</strong>
+              <ul>
+                <li><em>Exemplary:</em> produces comparative threat tables, transcript protection analysis, and mitigation plans
+                  for member churn.</li>
+                <li><em>Proficient:</em> demonstrates message confidentiality/integrity tests and key lifecycle logging.</li>
+                <li><em>Developing:</em> launches sample clients but omits reasoning about metadata protection.</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <span class="topic-card__tag">HSM</span>
+          <h3>Hardware &amp; Cloud Key Custody</h3>
+          <ul class="topic-card__list">
+            <li><strong>Scenario:</strong> orchestrate signing and envelope encryption flows across an on-prem HSM emulator and a
+              cloud KMS tenancy with dual-control approval.</li>
+            <li><strong>Tooling:</strong> SoftHSMv2, AWS KMS/CloudHSM or Google Cloud KMS SDKs, <code>hashicorp/vault</code>
+              transit engine, and policy-as-code pipelines.</li>
+            <li><strong>Assessment rubric:</strong>
+              <ul>
+                <li><em>Exemplary:</em> captures audit artefacts, separation-of-duties evidence, and recovery playbooks.</li>
+                <li><em>Proficient:</em> enforces key usage policies with automated rotation and incident response triggers.</li>
+                <li><em>Developing:</em> performs manual key operations without lifecycle governance checkpoints.</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
     <section class="unit-section unit-section--next">
       <div class="next-steps">
         <div>
