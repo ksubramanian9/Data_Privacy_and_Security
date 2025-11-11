@@ -327,6 +327,79 @@
       </div>
     </section>
 
+    <section class="unit-section">
+      <h2>Lab Toolkit, Resources &amp; Rubric</h2>
+      <p class="unit-section__intro">Standardise the way learners execute Unit II labs by pairing a vetted tool stack with current guidance and a rubric that maps directly to the cryptography learning objectives.</p>
+      <div class="documentation-flow">
+        <div class="documentation-flow__column">
+          <h3>Lab Toolkit</h3>
+          <ul class="checklist">
+            <li><span>OpenSSL &amp; LibreSSL CLI suites:</span> Script AES-GCM, ChaCha20-Poly1305, and RSA key lifecycle experiments while capturing benchmark data.</li>
+            <li><span>libsodium &amp; pqclean libraries:</span> Prototype authenticated encryption and NIST PQC finalists (Kyber, Dilithium) in reproducible notebooks.</li>
+            <li><span>SoftHSMv2 &amp; cloud KMS sandboxes:</span> Validate key custodianship, FIPS 140-3 considerations, and separation of duties across environments.</li>
+            <li><span>Wireshark, tshark, and SSL Labs scanners:</span> Inspect TLS 1.3/QUIC cipher negotiations, certificate hygiene, and AEAD usage in live flows.</li>
+            <li><span>Python <code>cryptography</code> &amp; <code>pyca/pyopenssl</code> benchmarking harness:</span> Automate throughput and latency comparisons across CPU architectures.</li>
+          </ul>
+        </div>
+        <div class="documentation-flow__column">
+          <h3>Resource Links</h3>
+          <ul>
+            <li><a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" rel="noopener">NIST Post-Quantum Cryptography program</a> — track algorithm standardisation updates for migration roadmaps.</li>
+            <li><a href="https://www.enisa.europa.eu/publications/post-quantum-cryptography-recommendations-for-transitioning" target="_blank" rel="noopener">ENISA PQC transition recommendations</a> — align inventory and readiness assessments with regulatory expectations.</li>
+            <li><a href="https://datatracker.ietf.org/doc/html/rfc8446" target="_blank" rel="noopener">RFC 8446 (TLS 1.3)</a> — reference cipher suite guidance for authenticated encryption labs.</li>
+            <li><a href="https://datatracker.ietf.org/doc/html/rfc9001" target="_blank" rel="noopener">RFC 9001 (QUIC-TLS)</a> — support low-latency channel experiments and AEAD configuration.</li>
+            <li><a href="https://doc.libsodium.org/" target="_blank" rel="noopener">libsodium documentation</a> — implement modern AEAD, key rotation, and secure memory patterns on constrained systems.</li>
+          </ul>
+        </div>
+        <div class="documentation-flow__column">
+          <h3>Assessment Rubric</h3>
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th scope="col">Criteria</th>
+                <th scope="col">Outcome Alignment</th>
+                <th scope="col">Evidence of Mastery</th>
+                <th scope="col">Weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Post-Quantum Migration Plan</td>
+                <td>Plan for Post-Quantum Migration</td>
+                <td>Asset inventory, hybrid key exchange strategy, and budget analysis documented with NIST/ENISA references.</td>
+                <td>30%</td>
+              </tr>
+              <tr>
+                <td>AEAD Benchmarking Dossier</td>
+                <td>Deploy Modern Authenticated Encryption</td>
+                <td>Throughput and latency comparisons for AES-GCM vs. ChaCha20-Poly1305 with tuning recommendations and telemetry.</td>
+                <td>25%</td>
+              </tr>
+              <tr>
+                <td>Constrained Platform Design</td>
+                <td>Engineer for Constrained Platforms</td>
+                <td>Implementation notes and risk mitigations for lightweight ciphers (Ascon, ChaCha20) on resource-limited devices.</td>
+                <td>20%</td>
+              </tr>
+              <tr>
+                <td>Governance &amp; Compliance Mapping</td>
+                <td>Plan for Post-Quantum Migration</td>
+                <td>Matrix linking cryptographic choices to PCI DSS, HIPAA, RBI/SEBI, and ISO 27002 obligations.</td>
+                <td>15%</td>
+              </tr>
+              <tr>
+                <td>Operational Readiness Narrative</td>
+                <td>All Outcomes</td>
+                <td>Executive summary describing monitoring, rotation cadence, and incident response triggers with measurable KPIs.</td>
+                <td>10%</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="rubric-note">Encourage learners to attach packet captures, benchmark scripts, and migration decision logs as evidence.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="unit-section unit-section--reference">
       <h2>Current Regulations &amp; Standards Alignment</h2>
       <p class="unit-section__intro">Use the shared <a href="index.html#regulation-reference">Regulations &amp; Standards Reference</a> to justify Unit II encryption and key management choices for audits and stakeholder briefings.</p>
